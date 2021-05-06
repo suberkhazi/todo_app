@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Hit the link to see in action https://todo-app-cp-fcd24.web.app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

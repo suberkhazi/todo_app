@@ -4,6 +4,11 @@ import { List, Avatar, ImageIcon, ListItemAvatar, ListItem, Modal, ListItemText 
 import db from './firebase';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import { makeStyles } from '@material-ui/core/styles';
+import EditIcon from '@material-ui/icons/Edit';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -38,22 +43,27 @@ const handleOpen = () => {
   open={open}
   onClose={e => setOpen(false)}>
    <div className={classes.paper}>
-      <h1>im modal</h1>
+      <h1>Edit the Todo</h1>
       <input placeholder= {props.todo.todo} value={input} onChange={event => setInput(event.target.value)}/>
-      <button onClick={updateTodo}>Update todo</button>
+      <Button variant="contained"
+        color="primary"
+        size="small"
+        className={classes.button}
+        startIcon={<EditIcon />} onClick={updateTodo}>Update todo</Button>
    </div>
 
 </Modal>
-      <List>
+      <List> 
       <ListItem>
       <ListItemAvatar>
 
       </ListItemAvatar>
-         <ListItemText primary= {props.todo.todo} secondary=""/>
+         <ListItemText primary= {props.todo.todo} secondary="nothing"/>
       </ListItem>
-      <button onClick={e=> setOpen(true)}>edit mee</button>
+      <EditIcon onClick={e=> setOpen(true)}/>
 
       <DeleteSweepIcon onClick={event => db.collection('todos').doc(props.todo.id).delete()}/>
+      <Divider  variant="inset" component="li" />
       </List>
       </>
    )

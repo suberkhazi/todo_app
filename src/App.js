@@ -4,6 +4,7 @@ import { Button, FormControl, Input, InputLabel} from '@material-ui/core';
 import './App.css';
 import db from './firebase';
 import firebase from 'firebase';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 
 function App() {
 const [todos, setTodos] = useState(['']);
@@ -39,7 +40,7 @@ setInput('');//this clears input feild after submiting..
   <Input value={input} onChange={event => setInput(event.target.value)} />
 </FormControl>
 
-      <Button disabled={!input} type="submit" onClick={addTodo} variant="contained" color="primary">
+      <Button disabled={!input} type="submit" onClick={addTodo} variant="contained" color="primary" startIcon={<AddCircleIcon />}>
  Add Todo
 </Button>
    
